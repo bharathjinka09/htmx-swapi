@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>swapi-htmx</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <script src="https://unpkg.com/htmx.org@1.2.1"></script>
+    <script src="https://unpkg.com/htmx.org@1.2.1/dist/ext/client-side-templates.js"></script>
+    <script src="https://unpkg.com/mustache@latest"></script>
+    <script id="mtpeople" type="x-tmpl-mustache">
+      <ul>
+      {{#results}}
+      <li>{{name}}</li>
+      {{/results}}
+      </ul>
+    </script>
+
+    <button hx-get="//localhost:3000/api/people" hx-ext="client-side-templates" hx-target="#people-list" mustache-template="mtpeople">Load data</button>
+
+
+    <div id="people-list"></div>
+  </body>
+</html>

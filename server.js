@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 
 app.get('/', async (req, res) => {
@@ -24,6 +24,10 @@ app.get('/api/planets', async (req,res) => {
   const response = await fetch('https://swapi.dev/api/planets');
   const data = await response.json();
   res.json(data);
+});
+
+app.get('/api/foo', (req,res) => {
+  res.json({ foo: "bar", baz: "hello" });
 });
 
 app.use(express.static(__dirname + '/assets'));

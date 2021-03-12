@@ -1,0 +1,11 @@
+doctype html
+html(lang="en")
+  head
+    title swapi-htmx
+    meta(charset="utf-8")
+  body
+    h1 Starwars
+    ul
+      each p in people
+        li= p.name
+    script(src="https://unpkg.com/htmx.org@1.2.1")
